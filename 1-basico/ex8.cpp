@@ -8,8 +8,7 @@ int main(){
 	cout << "Digite a opcao: ";
 	cin >> opcao;
 	
-	switch (opcao){
-		
+	switch (opcao){	
 		case 1:
 			cout << "Voce digitou a opcao: " << opcao;
 			break;

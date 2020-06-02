@@ -8,7 +8,7 @@ int main (){
 	cout << "Qual e a sua idade: \n";
 	cin >> idade;
 	
-	if (idade = 18 || idade > 18){
+	if (idade == 18 || idade > 18){
 		cout << "Maior de idade";
 	}else{
 		cout << "Menor de idade";
