@@ -2,49 +2,61 @@
 
 using namespace std;
 
+struct Motor{
+	int id;
+	string descricao;
+};
+
 struct Carro{
+	//Atributos
 	string nome;
 	string cor;
 	int potencia;
 	int velocidadeMax;
-	
-	void inserir (string nome, string cor, int potencia, int velocidadeMax){
-		nome = nome;
-		cor = cor;
-		potencia = potencia;
-		velocidadeMax = velocidadeMax;
-	}
+	Motor motor;
 	
 	void imprimir(){
-		cout << "Nome: " << nome << "\n";
-		cout << "Cor: " << cor << "\n";
-		cout << "Potencia: " << potencia << "\n";
-		cout << "Velocidade maxima: " << velocidadeMax << "\n";
+		cout << "Nome: " << nome << endl;
+		cout << "Cor: " << cor << endl;
+		cout << "Potencia: " << potencia << endl;
+		cout << "Velocidade maxima: " << velocidadeMax << endl;
+		
+		cout << "Id Motor: " << motor.id << endl;
+		cout << "Descricao Motor: " << motor.descricao << endl;
+		
+		cout << "-------------------------------" << endl;
 	}
 	
-	void addVelocidade(int velocidade){
-		velocidadeMax = velocidadeMax + velocidade;
-	}
+	void addVelocidade(int vel){
+		velocidadeMax = velocidadeMax + vel;
+	}	
 };
 
-void imprimirCarro(Carro carro);
+//Declaração dos métodos 
+void imprimir();
+void addVelocidade(int vel);
 
 int main(){
-
+	
+	//Implementando o nosso código:
 	Carro car1;
 	
-	car1.nome = "Gol";
+	car1.nome = "Palio";
 	car1.cor = "Branco";
-	car1.potencia = 100;
+	car1.potencia = 5;
 	car1.velocidadeMax = 200;
-	cout << "\n";
+	
+	car1.motor.id = 1;
+	car1.motor.descricao = "motor forte";
+	
+	//Impressao1
 	car1.imprimir();
-	cout << "\n";
-	car1.addVelocidade(10);
-	cout << "\n";
+	
+	//Aumentar a velocidade
+	car1.addVelocidade(20);
+	
+	//Impressao2
 	car1.imprimir();
 	
 	return 0;
 }
-
-

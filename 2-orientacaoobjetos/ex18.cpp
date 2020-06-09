@@ -2,51 +2,56 @@
 
 using namespace std;
 
-//Declaração da classe
 class Aviao{
-
 	public:
 		int velocidade=0;
 		int velocidadeMax;
 		string tipo;
 		void ini(int tp);
-	private:	
-	
+		void imprimir();
+	private:
 };
 
-void Aviao::ini(int tp){ // 1 = jato, 2 - monomotor, 3 planador
+void Aviao::ini(int tp){
+	// 1 - jato
+	// 2 - MonoMotor
+	// 3 - Planador
+	
 	if (tp==1){
-		this->velocidadeMax=700;
-		this->tipo="Jato"; 
+		this->velocidadeMax=1000;
+		this->tipo="Jato";
 	}else if (tp==2){
-		this->velocidadeMax=500;
-		this->tipo="Monomotor";
-	}else if(tp==3){
-		this->velocidadeMax=300;
-		this->tipo="planador";
+		this->velocidadeMax=600;
+		this->tipo="MonoMotor";
+	}else if (tp==3){
+		//Teste sem o this
+		velocidadeMax=200;
+		tipo="Planador";
+	}else{
+		cout << "Opcao invalida";
 	}
 }
 
+void Aviao::imprimir(){
+	cout << "Tipo: " << this->tipo << endl;
+	cout << "Velocidade Maxima: " << this->velocidadeMax << endl;
+	cout << "-------------------------------" << endl;
+}
+
 int main(){
-	//Objetos são declarados como ponteiros
-	Aviao *aviao = new Aviao();
 	
-	Aviao *aviao2 = new Aviao();
+	//Criar um objeto - Objetos no C++ são declarados como ponteiro
+	Aviao *aviao1 = new Aviao();
 	
-	aviao->velocidade = 10;
-	aviao->velocidadeMax = 1000;
+	//aviao1->velocidade = 10;
+	//aviao1->velocidadeMax = 500;	
+	//cout << "Velocidade: " << aviao1->velocidade << endl;
+	//cout << "Velocidade Maxima: " << aviao1->velocidadeMax << endl;
 	
-	cout << aviao->velocidade << "\n";
-	cout << aviao->velocidadeMax << "\n";
-	
-	aviao->ini(3);
-	
-	cout << aviao->velocidadeMax << endl;
-	
-	
-	aviao2->ini(2);
-	cout << aviao2->velocidadeMax;
-	
+	for (int i = 1; i < 4; i++){
+		aviao1->ini(i);
+		aviao1->imprimir();
+	}
 	
 	return 0;
 }
